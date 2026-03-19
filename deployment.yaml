@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
       - name: web-app
-        image: image-registry.openshift-image-registry.svc:5000/my-test-project/my-web-app:latest
+        # GEWIJZIGD: Gebruik een publieke image voor de demo
+        image: quay.io/libpod/httpd:latest 
         ports:
         - containerPort: 8080
