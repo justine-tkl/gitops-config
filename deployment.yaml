@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: web-app
-        # De tag :latest wordt later door Tekton aangepast naar een unieke hash
         image: image-registry.openshift-image-registry.svc:5000/my-test-project/my-web-app:latest
         ports:
         - containerPort: 8080
