@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-hybrid-demo
-  namespace: openshift-gitops # Or the namespace where your ArgoCD is running
+  namespace: argocd-demo  # DIT MOET argocd-demo ZIJN
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/YOUR_USERNAME/gitops-config.git' # <--- CHANGE THIS
+    repoURL: 'https://github.com/justine-tkl/gitops-config.git'
     targetRevision: HEAD
-    path: . # This tells Argo to look in the root of the repo
+    path: . 
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: my-demo-app # The namespace where you want the VM and Pods to live
+    namespace: my-demo-app # De plek voor je VM en Pods
   syncPolicy:
     automated:
       prune: true
