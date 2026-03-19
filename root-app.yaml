@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: my-hybrid-demo
-  namespace: argocd-demo  # DIT MOET argocd-demo ZIJN
+  namespace: argocd-demo  
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: . 
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: my-demo-app # De plek voor je VM en Pods
+    namespace: my-demo-app
   syncPolicy:
     automated:
       prune: true
