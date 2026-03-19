@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: web-app
-        # GEWIJZIGD: Gebruik een publieke image voor de demo
         image: quay.io/libpod/httpd:latest 
         ports:
         - containerPort: 8080
