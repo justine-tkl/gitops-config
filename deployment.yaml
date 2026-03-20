@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-web-app
-  namespace: my-test-project
+  namespace: my-demo-app
 spec:
   replicas: 1
   selector:
