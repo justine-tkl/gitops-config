@@ -1,0 +1,22 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: legacy-srv-01-migrated
+  namespace: vm-migration-demo
+spec:
+  running: false
+  template:
+    spec:
+      domain:
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: rootdisk
+        resources:
+          requests:
+            memory: 8Gi
+      volumes:
+      - name: rootdisk
+        containerDisk:
+          image: quay.io/containerdisks/centos-stream:9
