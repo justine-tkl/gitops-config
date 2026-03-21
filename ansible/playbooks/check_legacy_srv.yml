@@ -1,0 +1,16 @@
+---
+- name: "Pre-migration Check op Legacy Server"
+  hosts: all
+  become: yes
+  tasks:
+    - name: "Check OS versie"
+      debug:
+        msg: "De server draait op {{ ansible_distribution }} {{ ansible_distribution_version }}"
+
+    - name: "Check schijfruimte op root"
+      shell: "df -h / | awk 'NR==2 {print $4}'"
+      register: disk_free
+
+    - name: "Rapporteer status"
+      debug:
+        msg: "Vrije ruimte op legacy server: {{ disk_free.stdout }}"
